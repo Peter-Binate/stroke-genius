@@ -13,10 +13,10 @@ function Timer() {
 
   // The state for our timer
   // La valeur initiale de timer est modifiée pour afficher 60 au chargement
-  const [timer, setTimer] = useState('00:00:10');
+  const [timer, setTimer] = useState('00:00:60');
 
   const clearTimer = (e) => {
-    setTimer('00:00:10');
+    setTimer('00:00:60');
 
     if (Ref.current) clearInterval(Ref.current);
 
@@ -58,7 +58,7 @@ function Timer() {
     let deadline = new Date();
     // This is where you need to adjust if
     // you intend to add more time
-    deadline.setSeconds(deadline.getSeconds() + 10);
+    deadline.setSeconds(deadline.getSeconds() + 60);
     return deadline;
   }
 
