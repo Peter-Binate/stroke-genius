@@ -1,0 +1,22 @@
+#modal-button{
+    width: fit-content;
+    border: none;
+    background-color: #ffffff;
+    font-size: 16px;
+}
+
+#modal-button:hover{
+    cursor: pointer;
+    color: rgb(109, 107, 107);
+}
+
+span{
+    display: flex;
+    align-items: center;
+}
+
+svg{
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}

@@ -1,0 +1,16 @@
+#timer-container{
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#timer-text{
+    margin-bottom: -10px;
+}
+
+#timer-button{
+    background-color: #F6A655;
+    width: 143px;
+    margin-bottom: 34px;
+}

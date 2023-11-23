@@ -1,0 +1,44 @@
+/* .form-container{
+    text-align: center;
+}
+
+.form-container{
+    padding-top: 100px;
+    margin-bottom: -50px;
+} */
+
+.restriction-form-container{
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+}
+
+.restriction-form-container h3{
+    text-transform: uppercase;
+    font-size: 26px;
+    width: 100%;
+}
+
+#restriction-input{
+    width: 100%;
+    height: 46px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    background-color: #ffffff;
+    border: 1px solid #d4d4d4;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#restriction-button{
+    width: 100%;
+    height: 46px;
+    border: 0;
+    color: #fff;
+    background-color: #4763bf;
+    text-transform: uppercase;
+    cursor: pointer;
+}
