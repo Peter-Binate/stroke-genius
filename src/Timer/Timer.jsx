@@ -1,22 +1,15 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import './Timer.css';
 
 function Timer() {
   const Ref = useRef(null);
 
-  // Utilisez une variable d'état pour suivre si le timer a déjà été démarré
   const [hasTimerStarted, setTimerStarted] = useState(false);
-
-  // Utilisez une variable d'état pour suivre l'état du bouton
   const [isTimerRunning, setTimerRunning] = useState(false);
-
-  // The state for our timer
-  // La valeur initiale de timer est modifiée pour afficher 60 au chargement
-  const [timer, setTimer] = useState('00:00:60');
+  const [timer, setTimer] = useState('00:60');
 
   const clearTimer = (e) => {
-    setTimer('00:00:60');
+    setTimer('00:60');
 
     if (Ref.current) clearInterval(Ref.current);
 
@@ -28,53 +21,44 @@ function Timer() {
     }
   }
 
-  // Time Remaining (Temps restant)
   const getTimeRemaining = (e) => {
     const total = Date.parse(e) - Date.parse(new Date());
-    const seconds = Math.floor((total / 1000) % 60);
     const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / 1000 / 60 / 60) % 24);
+    const seconds = Math.floor((total / 1000) % 60);
     return {
-      total, hours, minutes, seconds
+      total, minutes, seconds
     };
   }
 
   const startTimer = (e) => {
-    let { total, hours, minutes, seconds } = getTimeRemaining(e);
+    let { total, minutes, seconds } = getTimeRemaining(e);
 
     if (total >= 0) {
-      // update the timer
-      // check if less than 10 then we need to
-      // add '0' at the beginning of the variable
+      // Update the timer
       setTimer(
-        (hours > 9 ? hours : '0' + hours) + ':' +
-        (minutes > 9 ? minutes : '0' + minutes) + ':' +
+        (minutes > 9 ? minutes : '0' + minutes) +
+        ':' +
         (seconds > 9 ? seconds : '0' + seconds)
-      )
+      );
     }
   }
 
   const getDeadTime = () => {
     let deadline = new Date();
-    // This is where you need to adjust if
-    // you intend to add more time
-    deadline.setSeconds(deadline.getSeconds() + 60);
+    deadline.setMinutes(deadline.getMinutes() + 1); // Ajouter 1 minute
     return deadline;
   }
 
   useEffect(() => {
     clearTimer(getDeadTime());
-    // Change l'état du bouton après le chargement initial
     setTimerRunning(true);
   }, []);
 
   const onClickStartReset = () => {
     if (!hasTimerStarted) {
-      // Si le timer est en cours et n'a pas encore commencé, cliquez pour démarrer
       setTimerStarted(true);
       clearTimer(getDeadTime());
     } else {
-      // Si le timer est en cours et a déjà commencé, cliquez pour réinitialiser et relancer
       setTimerStarted(false);
       clearTimer(getDeadTime());
     }
@@ -89,7 +73,7 @@ function Timer() {
         </button>
       </div>
     </>
-  )
+  );
 }
 
 export default Timer;
