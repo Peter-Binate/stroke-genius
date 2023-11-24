@@ -9,8 +9,7 @@ function RestrictionsItems() {
         { id: 2, restriction: "Draw without your eyes open" },
         { id: 3, restriction: "Draw without taking your pen off the paper" },
         { id: 4, restriction: "Draw 2 words instead of 1" },
-        { id: 5, restriction: "Draw for only 30 seconds" },
-        { id: 6, restriction: "Draw with your non dominant hand" },
+        { id: 5, restriction: "Draw with your non dominant hand" }
 
     ]);
 
