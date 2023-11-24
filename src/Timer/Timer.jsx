@@ -6,10 +6,10 @@ function Timer() {
 
   const [hasTimerStarted, setTimerStarted] = useState(false);
   const [isTimerRunning, setTimerRunning] = useState(false);
-  const [timer, setTimer] = useState('00:60');
+  const [timer, setTimer] = useState('01:00');
 
   const clearTimer = (e) => {
-    setTimer('00:60');
+    setTimer('01:00');
 
     if (Ref.current) clearInterval(Ref.current);
 
